@@ -11,10 +11,9 @@ import java.util.Properties;
 
 public class DB {
 
-	//conectar com banco de dados do jdbc
-	private static Connection conn = null; //
+	private static Connection conn = null;
 	
-	public static Connection getConnection() { // conecao com o banco de dados
+	public static Connection getConnection() {
 		if (conn == null) {
 			try {
 				Properties props = loadProperties();
@@ -38,11 +37,10 @@ public class DB {
 		}
 	}
 	
-	//Carregar os dados que estão dentro do arquivo db.properties
 	private static Properties loadProperties() {
-		try (FileInputStream fs = new FileInputStream("db.properties")) { // ler o arquivo db.properties
+		try (FileInputStream fs = new FileInputStream("db.properties")) {
 			Properties props = new Properties();
-			props.load(fs); // comando load faz a leitura do arquivo e coloca dentro do props
+			props.load(fs);
 			return props;
 		}
 		catch (IOException e) {
